@@ -1,0 +1,6 @@
+{
+  "id": "pi-cache-hit",
+  "name": "Pi Cache Hit",
+  "description": "Shows Pi’s latest-message cache hit rate in Paseo.",
+  "requirements": { "paseo": ">=0.16.1" }
+}
