@@ -2,6 +2,7 @@
   "name": "paseo-pi-cache-hit",
   "version": "0.1.0",
   "description": "Shows Pi’s latest-message cache hit rate in Paseo.",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "scripts": {
