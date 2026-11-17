@@ -1,0 +1,17 @@
+{
+  "pillRate": "CH{{percent}}%",
+  "pillUnavailable": "CH—",
+  "pillTitleLoading": "Lendo as estatísticas de cache do Pi.",
+  "pillTitleReady": "Taxa de acerto de cache do Pi na mensagem mais recente do assistente: {{percent}}%.",
+  "pillTitleUnavailable": "A taxa de acerto de cache do Pi ainda não está disponível.",
+  "pillTitleError": "Não foi possível ler as estatísticas da sessão do Pi.",
+  "pillTitleStale": "Exibindo a última taxa de cache informada pelo Pi; a atualização falhou.",
+  "loading": "Aguardando as estatísticas de uso do Pi",
+  "unavailable": "A taxa de acerto de cache ainda não está disponível para esta sessão.",
+  "readError": "Não foi possível ler as estatísticas da sessão do Pi. Tentando novamente.",
+  "cacheRead": "Lidos do cache: {{tokens}} tokens",
+  "input": "Tokens de entrada não armazenados em cache: {{tokens}}",
+  "cacheWrite": "Gravados no cache: {{tokens}} tokens",
+  "description": "Parcela dos tokens de entrada da mensagem mais recente do assistente que foi lida do cache.",
+  "rounding": "Percentual arredondado para uma casa decimal."
+}

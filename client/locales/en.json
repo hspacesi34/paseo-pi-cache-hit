@@ -1,0 +1,17 @@
+{
+  "pillRate": "CH{{percent}}%",
+  "pillUnavailable": "CH—",
+  "pillTitleLoading": "Reading Pi cache statistics.",
+  "pillTitleReady": "Pi cache hit rate for the latest assistant message: {{percent}}%.",
+  "pillTitleUnavailable": "No Pi cache hit rate is available yet.",
+  "pillTitleError": "Could not read Pi session statistics.",
+  "pillTitleStale": "Showing the last reported Pi cache rate; refresh failed.",
+  "loading": "Waiting for Pi usage statistics",
+  "unavailable": "No cache hit rate is available for this session yet.",
+  "readError": "Could not read Pi session statistics. Retrying.",
+  "cacheRead": "Read from cache: {{tokens}} tokens",
+  "input": "Uncached input tokens: {{tokens}}",
+  "cacheWrite": "Written to cache: {{tokens}} tokens",
+  "description": "Share of input tokens in the latest assistant message that were read from cache.",
+  "rounding": "Rate rounded to one decimal place."
+}

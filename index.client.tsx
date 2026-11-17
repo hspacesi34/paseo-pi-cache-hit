@@ -1,4 +1,8 @@
-import type { PluginButtonRegistration, PluginClientContext } from "@getpaseo/plugin/client";
+import type {
+  PluginButtonRegistration,
+  PluginClientContext,
+  PluginText,
+} from "@getpaseo/plugin/client";
 import {
   CacheDetails,
   cachePillLabel,
@@ -15,9 +19,10 @@ type AgentEntry = {
 
 type PillEntry = {
   workspaceId: string;
-  registration: PluginButtonRegistration;
-  label: string;
-  title: string;
+  registration: PluginButtonRegistration<PluginText>;
+  reportKey: string;
+  lastReport: PiCacheHitReport | null;
+  failed: boolean;
   running: boolean;
 };
 
@@ -42,12 +47,23 @@ export default function contribute(client: PluginClientContext) {
   function publishReport(agentId: string, report: PiCacheHitReport) {
     const entry = pills.get(agentId);
     if (!entry) return;
-    const label = cachePillLabel(report);
-    const title = cachePillTitle(report);
-    if (entry.label === label && entry.title === title) return;
-    entry.registration.update({ label, title });
-    entry.label = label;
-    entry.title = title;
+    const reportKey = JSON.stringify(report);
+    if (entry.reportKey !== reportKey || entry.failed) {
+      entry.registration.update({
+        label: cachePillLabel(report),
+        title: cachePillTitle(report),
+      });
+    }
+    entry.reportKey = reportKey;
+    entry.lastReport = report;
+    entry.failed = false;
+  }
+
+  function publishReadError(agentId: string) {
+    const entry = pills.get(agentId);
+    if (!entry || entry.failed) return;
+    entry.registration.update({ title: cachePillTitle(entry.lastReport, true) });
+    entry.failed = true;
   }
 
   async function refreshMetric(agentId: string) {
@@ -60,9 +76,12 @@ export default function contribute(client: PluginClientContext) {
       loggedFailures.delete(agentId);
       publishReport(agentId, report);
     } catch (error) {
-      if (!lifetime.signal.aborted && !loggedFailures.has(agentId)) {
-        console.error("Pi cache-hit read failed", error);
-        loggedFailures.add(agentId);
+      if (!lifetime.signal.aborted) {
+        publishReadError(agentId);
+        if (!loggedFailures.has(agentId)) {
+          console.error("Pi cache-hit read failed", error);
+          loggedFailures.add(agentId);
+        }
       }
     } finally {
       inFlight.delete(agentId);
@@ -86,8 +105,9 @@ export default function contribute(client: PluginClientContext) {
     }
 
     removePill(agent.id);
-    const label = "CH—";
-    const title = "Lecture du taux de cache hit Pi…";
+    const initialReport = null;
+    const label = cachePillLabel(initialReport);
+    const title = cachePillTitle(initialReport);
     const registration = client.addComposerPill({
       id: "cache-hit",
       workspaceId,
@@ -99,7 +119,14 @@ export default function contribute(client: PluginClientContext) {
         behavior: { kind: "popover", Content: CacheDetails },
       },
     });
-    pills.set(agent.id, { workspaceId, registration, label, title, running: isRunning });
+    pills.set(agent.id, {
+      workspaceId,
+      registration,
+      reportKey: JSON.stringify(initialReport),
+      lastReport: initialReport,
+      failed: false,
+      running: isRunning,
+    });
     void refreshMetric(agent.id);
   }
 

@@ -1,0 +1,17 @@
+{
+  "pillRate": "CH{{percent}}%",
+  "pillUnavailable": "CH—",
+  "pillTitleLoading": "Lecture des statistiques de cache Pi.",
+  "pillTitleReady": "Taux de cache hit Pi du dernier message assistant : {{percent}} %.",
+  "pillTitleUnavailable": "Aucun taux de cache hit Pi disponible pour le moment.",
+  "pillTitleError": "Impossible de lire les statistiques de session Pi.",
+  "pillTitleStale": "Dernier taux Pi affiché; actualisation en échec.",
+  "loading": "En attente des statistiques d’utilisation de Pi",
+  "unavailable": "Aucun taux de cache hit disponible pour cette session pour le moment.",
+  "readError": "Impossible de lire les statistiques de session Pi. Nouvelle tentative en cours.",
+  "cacheRead": "Relus depuis le cache : {{tokens}} tokens",
+  "input": "Tokens d’entrée hors cache : {{tokens}}",
+  "cacheWrite": "Écrits dans le cache : {{tokens}} tokens",
+  "description": "Part des tokens d’entrée du dernier message assistant relue depuis le cache.",
+  "rounding": "Pourcentage arrondi à une décimale."
+}

@@ -1,0 +1,17 @@
+{
+  "pillRate": "CH{{percent}}%",
+  "pillUnavailable": "CH—",
+  "pillTitleLoading": "正在读取 Pi 缓存统计信息。",
+  "pillTitleReady": "Pi 最新一条助手消息的缓存命中率：{{percent}}%。",
+  "pillTitleUnavailable": "暂时没有可用的 Pi 缓存命中率。",
+  "pillTitleError": "无法读取 Pi 会话统计信息。",
+  "pillTitleStale": "显示的是上次报告的 Pi 缓存率；刷新失败。",
+  "loading": "正在等待 Pi 使用统计信息",
+  "unavailable": "此会话暂时没有可用的缓存命中率。",
+  "readError": "无法读取 Pi 会话统计信息，正在重试。",
+  "cacheRead": "从缓存读取：{{tokens}} 个令牌",
+  "input": "未缓存的输入令牌：{{tokens}}",
+  "cacheWrite": "写入缓存：{{tokens}} 个令牌",
+  "description": "最新一条助手消息中从缓存读取的输入令牌所占比例。",
+  "rounding": "百分比四舍五入到小数点后一位。"
+}

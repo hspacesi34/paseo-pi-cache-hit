@@ -1,0 +1,17 @@
+{
+  "pillRate": "CH{{percent}}%",
+  "pillUnavailable": "CH—",
+  "pillTitleLoading": "Pi のキャッシュ統計を読み込んでいます。",
+  "pillTitleReady": "直近のアシスタントメッセージにおける Pi のキャッシュヒット率: {{percent}}%。",
+  "pillTitleUnavailable": "Pi のキャッシュヒット率はまだ利用できません。",
+  "pillTitleError": "Pi のセッション統計を読み取れませんでした。",
+  "pillTitleStale": "最後に取得した Pi のキャッシュ率を表示しています。更新に失敗しました。",
+  "loading": "Pi の使用状況を待っています",
+  "unavailable": "このセッションのキャッシュヒット率はまだ利用できません。",
+  "readError": "Pi のセッション統計を読み取れませんでした。再試行しています。",
+  "cacheRead": "キャッシュから読み取ったトークン: {{tokens}}",
+  "input": "キャッシュされなかった入力トークン: {{tokens}}",
+  "cacheWrite": "キャッシュに書き込んだトークン: {{tokens}}",
+  "description": "直近のアシスタントメッセージの入力トークンのうち、キャッシュから読み取られた割合です。",
+  "rounding": "割合は小数第1位に丸められています。"
+}
